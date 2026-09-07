@@ -14,6 +14,8 @@ if (!context) {
     "useContext(tokenContext) must be used within AuthTokenContext"
   );
 }
+const { userData } = context;
+
 const router=useNavigate();
 
 function handleLogout() {
@@ -23,8 +25,6 @@ function handleLogout() {
   router("/login");
 }
 
-const { userData } = context;
-console.log("NAVBAR USER:", userData);
 return (
 
 <>

@@ -2,11 +2,11 @@ export interface postDetailsResponse {
   success: boolean
   message: string
   data: Data
-  meta: Meta
+  meta?: Meta
 }
 
 export interface Data {
-  posts: Post[]
+  post: Post // Changed from 'posts: Post[]' to 'post: Post'
 }
 
 export interface Post {
@@ -26,6 +26,8 @@ export interface Post {
   bookmarked: boolean
   image?: string
 }
+
+// ... keep the rest of your interfaces (User, SharedPost, Meta, etc.) unchanged
 
 export interface User {
   _id: string

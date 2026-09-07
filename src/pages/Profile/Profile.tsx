@@ -5,11 +5,18 @@ import PostCard from '../Posts/postcards/PostCard';
 
 export default function Profile() {
   const [posts, setPosts] = useState([]); 
-  const { userData } = useContext(tokenContext);
+const context = useContext(tokenContext);
+
+if (!context) {
+  throw new Error(
+    "useContext(tokenContext) must be used within AuthTokenContext"
+  );
+}
+const { userData } = context;
 
   useEffect(() => {
     async function getUserPosts() {
-      if (!userData?.id) return; // Prevent calling API if userData isn't loaded yet
+      if (!userData?.id) return; 
 
       try {
         const response = await axios.get(
